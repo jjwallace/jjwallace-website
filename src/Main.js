@@ -15,7 +15,7 @@ function MainState(){
 			var middleScreen = this.game.width / 2;
 
 			function menuClick(game){
-				navbar.open(this);
+				navbar.toggleNavbar(this);
 			}
 
 			var imgMenu = this.add.sprite(this.game.width, 0, 'menu');

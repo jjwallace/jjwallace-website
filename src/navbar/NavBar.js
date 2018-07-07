@@ -59,14 +59,15 @@ class NavBar {
 		this.scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.Out, true);
 	}
 
-	open(scope){
-		console.log('Open!');
-		console.log(NavBar.prototype);
+	toggleNavbar(scope){
+
 		if(this.toggle == true){
 			this.toggle = false;
+      console.log('Open!');
 			scope.add.tween(this.menuBackground).to({ x: -this.menuWidth, y: 0 }, 200, Phaser.Easing.Linear.In, true);
 		}else{
 			this.toggle = true;
+      console.log('Close!');
 			scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.In, true);
 		}
 	}
