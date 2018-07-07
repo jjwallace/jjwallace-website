@@ -1,0 +1,252 @@
+{"frames": {
+
+"fish_jelly0001.png":
+{
+	"frame": {"x":1,"y":487,"w":93,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":93,"h":43},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0002.png":
+{
+	"frame": {"x":1,"y":671,"w":92,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":92,"h":43},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0003.png":
+{
+	"frame": {"x":1,"y":393,"w":94,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":1,"w":94,"h":45},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0004.png":
+{
+	"frame": {"x":1,"y":440,"w":93,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":1,"w":93,"h":45},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0005.png":
+{
+	"frame": {"x":1,"y":624,"w":92,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":1,"w":92,"h":45},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0006.png":
+{
+	"frame": {"x":1,"y":575,"w":92,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":0,"w":92,"h":47},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0007.png":
+{
+	"frame": {"x":1,"y":759,"w":91,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":0,"w":91,"h":47},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0008.png":
+{
+	"frame": {"x":1,"y":808,"w":91,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":0,"w":91,"h":47},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0009.png":
+{
+	"frame": {"x":1,"y":857,"w":89,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":13,"y":0,"w":89,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0010.png":
+{
+	"frame": {"x":1,"y":1054,"w":87,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":15,"y":0,"w":87,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0011.png":
+{
+	"frame": {"x":1,"y":1104,"w":87,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":15,"y":0,"w":87,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0012.png":
+{
+	"frame": {"x":1,"y":954,"w":88,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":0,"w":88,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0013.png":
+{
+	"frame": {"x":1,"y":1004,"w":88,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":0,"w":88,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0014.png":
+{
+	"frame": {"x":1,"y":1154,"w":87,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":0,"w":87,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0015.png":
+{
+	"frame": {"x":1,"y":1204,"w":87,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":0,"w":87,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0016.png":
+{
+	"frame": {"x":1,"y":907,"w":89,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":1,"w":89,"h":45},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0017.png":
+{
+	"frame": {"x":1,"y":716,"w":92,"h":41},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":3,"w":92,"h":41},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0018.png":
+{
+	"frame": {"x":1,"y":353,"w":95,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":4,"w":95,"h":38},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0019.png":
+{
+	"frame": {"x":1,"y":275,"w":97,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":6,"w":97,"h":35},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0020.png":
+{
+	"frame": {"x":1,"y":61,"w":100,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":8,"w":100,"h":31},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0021.png":
+{
+	"frame": {"x":1,"y":1,"w":102,"h":27},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":10,"w":102,"h":27},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0022.png":
+{
+	"frame": {"x":1,"y":30,"w":101,"h":29},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":9,"w":101,"h":29},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0023.png":
+{
+	"frame": {"x":1,"y":94,"w":100,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":100,"h":31},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0024.png":
+{
+	"frame": {"x":1,"y":127,"w":99,"h":33},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":7,"w":99,"h":33},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0025.png":
+{
+	"frame": {"x":1,"y":200,"w":98,"h":34},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":98,"h":34},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0026.png":
+{
+	"frame": {"x":1,"y":162,"w":98,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":5,"w":98,"h":36},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0027.png":
+{
+	"frame": {"x":1,"y":236,"w":97,"h":37},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":5,"w":97,"h":37},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0028.png":
+{
+	"frame": {"x":1,"y":312,"w":96,"h":39},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":96,"h":39},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0029.png":
+{
+	"frame": {"x":1,"y":532,"w":93,"h":41},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":3,"w":93,"h":41},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly0030.png":
+{
+	"frame": {"x":1,"y":487,"w":93,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":93,"h":43},
+	"sourceSize": {"w":102,"h":48}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "sp_jellyfish.png",
+	"format": "RGBA8888",
+	"size": {"w":104,"h":1253},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:12e57416c78fc2a90b9e86aa971f41b8:3c3a1880bc208f37e6e1ab8e4056c67f:cbcd4d0ee0976c47a02a647de3c3e61d$"
+}
+}
