@@ -5,8 +5,6 @@
 * Pink JellyFish Phaser 2 CE Sample
 */
 
-from navbar import NavBar
-
 function MainState(){
 
 	BasicGame.Main = function (game) { this.game; this.add; this.camera; this.cache; this.input; this.load; this.math; this.sound; this.stage; this.time; this.tweens; this.state; this.world; this.particles; this.physics; this.rnd;
