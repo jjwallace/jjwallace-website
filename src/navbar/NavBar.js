@@ -61,12 +61,12 @@ class NavBar {
 
 	toggleNavbar(scope){
 
-		if(this.toggle == true){
-			this.toggle = false;
+		if(this.toggle == false){
+			this.toggle = true;
       console.log('Open!');
 			scope.add.tween(this.menuBackground).to({ x: -this.menuWidth, y: 0 }, 200, Phaser.Easing.Linear.In, true);
 		}else{
-			this.toggle = true;
+			this.toggle = false;
       console.log('Close!');
 			scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.In, true);
 		}
