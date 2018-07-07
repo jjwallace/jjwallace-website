@@ -12,26 +12,36 @@ function MainState(){
 	
 	BasicGame.Main.prototype = {
 		create: function () {
+			var middleScreen = this.game.width / 2;
 			
+			function menuClick(game){
+				navbar.open(this);
+			}
 			
 			var imgMenu = this.add.sprite(this.game.width, 0, 'menu');
 			imgMenu.anchor.set(1,0);
+			imgMenu.inputEnabled = true;
+			imgMenu.events.onInputDown.add(menuClick, this);
 
-			var imgLogo = this.add.sprite(this.game.width/2, 100, 'logo');
-			imgLogo.anchor.set(0.5,0);
-			//imgLogo.visible = false;
-			//imgLogo.scale.setTo(0.1,0.1);
-			//game.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true, 1000);
+			var imgLogo = this.add.sprite(middleScreen, 100, 'logo');
+			var logoSize = {width: imgLogo.width, height: imgLogo.height}
+			imgLogo.anchor.set(0.5, 0);
+			imgLogo.scale.setTo(0.1, 0.1);
+			this.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
 
-			var imgButton = this.add.sprite(this.game.width/2, imgLogo.y + (imgLogo.height) + 20, 'button');
-			imgButton.anchor.set(0.5,0);
-			//this.imgButton.scale.setTo(0.1);
-			//game.add.tween(imgButton.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true, 1000);
+			var btnLoc = {x: middleScreen, y: imgLogo.y + (logoSize.height) + 60}
+			var imgButton = this.add.sprite(btnLoc.x, this.game.height + 200, 'button');
+			imgButton.anchor.set(0.5, 0);
+			this.add.tween(imgButton).to({ x: btnLoc.x, y: btnLoc.y }, 500, Phaser.Easing.Back.Out, true);
+			imgButton.inputEnabled = true;
+			imgButton.events.onInputDown.add(menuClick, this);
 			
 			for (var i = 0; i < 20; i++) { 
 				new JellyFish(this);
 			}
 			var game = BasicGame.Main;
+			
+			var navbar = new NavBar(this);
 		}
 	}
 }
