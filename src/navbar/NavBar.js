@@ -11,6 +11,7 @@ class NavBar {
 		this.poly;
 		this.graphics;
 		this.menuWidth = 200;
+    this.scope = scope;
 
 		//Define the menu polygon
 		this.pol = {
@@ -55,7 +56,7 @@ class NavBar {
 	clickOnGraphics(){
 		console.log('Close!');
 		this.toggle = false;
-		scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.Out, true);
+		this.scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.Out, true);
 	}
 
 	open(scope){
