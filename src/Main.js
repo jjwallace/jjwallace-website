@@ -5,7 +5,7 @@
 * Pink JellyFish Phaser 2 CE Sample
 */
 
-from NavBar import NavBar
+from navbar import NavBar
 
 function MainState(){
 
