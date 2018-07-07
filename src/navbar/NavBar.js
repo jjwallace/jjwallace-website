@@ -11,7 +11,7 @@ class NavBar {
 		this.poly;
 		this.graphics;
 		this.menuWidth = 200;
-		
+
 		//Define the menu polygon
 		this.pol = {
 			xtl: scope.game.width,
@@ -49,7 +49,7 @@ class NavBar {
 
 		//Introduce yourself -Navbar
 		console.log('Hello! -Navbar');
-		
+
 	}
 
 	function clickOnGraphics(){
@@ -57,7 +57,7 @@ class NavBar {
 		this.toggle = false;
 		scope.add.tween(menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.Out, true);
 	}
-	
+
 	function open(scope){
 		console.log('Open!');
 		console.log(NavBar.prototype);
@@ -67,18 +67,20 @@ class NavBar {
 		}else{
 			this.toggle = true;
 			scope.add.tween(menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.In, true);
-		}	
+		}
 	}
-	
-	function CreatItem(){
+
+	class CreatItem(){
+		constructor() {
+			var imgMenu = this.add.sprite(this.game.width, 0, img);
+			item.anchor.set(0.5,0);
+			item.inputEnabled = true;
+			item.events.onInputDown.add(clickMe, this);
+		}
+
 		function clickMe(){
 			game.state.start(state);
 		}
-
-		var imgMenu = this.add.sprite(this.game.width, 0, img);
-		item.anchor.set(0.5,0);
-		item.inputEnabled = true;
-		item.events.onInputDown.add(clickMe, this);
 	}
-	
+
 }
