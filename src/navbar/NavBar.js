@@ -6,14 +6,14 @@
 */
 
 class NavBar {
-	constructor() {
+	constructor(scope) {
 		this.toggle = false;
 		this.poly;
 		this.graphics;
 		this.menuWidth = 200;
 		
 		//Define the menu polygon
-		var pol = {
+		this.pol = {
 			xtl: scope.game.width,
 			ytl: 0,
 			xtr: scope.game.width + menuWidth,
@@ -26,7 +26,7 @@ class NavBar {
 		}
 
 		//Make the polygon
-		poly = new Phaser.Polygon([
+		this.poly = new Phaser.Polygon([
 			new Phaser.Point(pol.xtl, pol.ytl),
 			new Phaser.Point(pol.xtr, pol.ytr),
 			new Phaser.Point(pol.xbr, pol.ybr),
@@ -34,18 +34,18 @@ class NavBar {
 		]);
 
 		//Convert the polygon into a graphic element
-		graphics = scope.game.add.graphics(0, 0);
+		this.graphics = scope.game.add.graphics(0, 0);
 
-		graphics.beginFill(0xFFFFFF);
-		graphics.drawPolygon(poly.points);
-		graphics.alpha = 0.9;
-		graphics.endFill();
+		this.graphics.beginFill(0xFFFFFF);
+		this.graphics.drawPolygon(this.poly.points);
+		this.graphics.alpha = 0.9;
+		this.graphics.endFill();
 
 		//Turn graphics into menu
-		menuBackground = scope.game.add.sprite(menuWidth, 0);
-		menuBackground.addChild(graphics);
-		menuBackground.inputEnabled = true;
-		menuBackground.events.onInputDown.add(clickOnGraphics, this);
+		this.menuBackground = scope.game.add.sprite(this.menuWidth, 0);
+		this.menuBackground.addChild(this.graphics);
+		this.menuBackground.inputEnabled = true;
+		this.menuBackground.events.onInputDown.add(clickOnGraphics, this);
 
 		//Introduce yourself -Navbar
 		console.log('Hello! -Navbar');
@@ -54,7 +54,7 @@ class NavBar {
 
 	function clickOnGraphics(){
 		console.log('Close!');
-		toggle = false;
+		this.toggle = false;
 		scope.add.tween(menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.Out, true);
 	}
 	
