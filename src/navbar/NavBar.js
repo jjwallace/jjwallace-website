@@ -70,7 +70,7 @@ class NavBar {
 		}
 	}
 
-	class CreatItem(){
+	class CreatItem {
 		constructor() {
 			var imgMenu = this.add.sprite(this.game.width, 0, img);
 			item.anchor.set(0.5,0);
