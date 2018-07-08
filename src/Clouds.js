@@ -22,6 +22,8 @@ function Clouds(){
 
 	BasicGame.Clouds.prototype = {
 		create: function () {
+			this.stage.backgroundColor = "#91c8e8";
+			
 			if (this.renderType === Phaser.WEBGL){
 				max = 60;
 			}
@@ -36,8 +38,13 @@ function Clouds(){
 
 			for (var i = 0; i < max; i++){
 				xx[i] = Math.floor(Math.random() * 800) - 400;
+				//yy[i] = Math.floor(Math.random() * 600) - 300;
 				yy[i] = Math.floor(Math.random() * 600) - 300;
 				zz[i] = Math.floor(Math.random() * 1700) - 100;
+				
+				while(yy[i] < 50 && yy[i] > -50){
+					yy[i] = Math.floor(Math.random() * 800) - 400;
+				}
 
 				var star = this.make.sprite(0, 0, 'cloud');
 				star.anchor.set(0.5);
@@ -58,14 +65,13 @@ function Clouds(){
 
 				zz[i] += speed;
 
-				if (zz[i] > 290)
-				{
-				zz[i] -= 600;
-			}
+				if (zz[i] > 290){
+					zz[i] -= 600;
+				}
 
-			stars[i].alpha = Math.min(stars[i].perspective / 2, 1);
-			stars[i].scale.set(stars[i].perspective / 2);
-			//stars[i].rotation += 0.1;
+				stars[i].alpha = Math.min(stars[i].perspective / 2, 1);
+				stars[i].scale.set(stars[i].perspective / 2);
+				//stars[i].rotation += 0.1;
 
 			}
 
