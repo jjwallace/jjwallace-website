@@ -18,7 +18,9 @@ function MainState(){
 				navbar.toggleNavbar(this);
 			}
 
-			
+			for (var i = 0; i < 20; i++) {
+				new JellyFish(this, true, 100);
+			}
 
 			var imgLogo = this.add.sprite(middleScreen, 100, 'logo');
 			var logoSize = {width: imgLogo.width, height: imgLogo.height}
@@ -35,7 +37,7 @@ function MainState(){
 			imgButton.events.onInputDown.add(menuClick, this);
 
 			for (var i = 0; i < 20; i++) {
-				new JellyFish(this);
+				new JellyFish(this, false, 0);
 			}
 			var game = BasicGame.Main;
 
@@ -46,11 +48,11 @@ function MainState(){
 
 MainState();
 
-JellyFish = function (objectScope) {
+JellyFish = function (objectScope, dark, jellySize) {
 	var game = objectScope.game;
 
 	this.alive = true;
-	var jellySize = getRandom(150, 200);
+	var jellySize = getRandom(150, 200) - jellySize;
 
 	this.acc = jellySize/100;
 	this.size = jellySize/100;
@@ -68,6 +70,10 @@ JellyFish = function (objectScope) {
 	this.scale.setTo(this.size);
 	this.angle = getRandom(-180, 180);
 
+	if(dark == true){
+		this.tint = 0x0032C9;
+	}
+	
 	game.add.existing(this);
 
 };

@@ -32,7 +32,7 @@ BasicGame.Preloader.prototype = {
 	},
 
 	create: function () {
-		this.state.start('Clouds');
+		this.state.start('Main');
 	},
 	
 };
