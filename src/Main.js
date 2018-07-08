@@ -71,7 +71,7 @@ JellyFish = function (objectScope, dark, jellySize) {
 	this.angle = getRandom(-180, 180);
 
 	if(dark == true){
-		this.tint = 0x0032C9;
+		this.tint = 0x0066FF;
 	}
 	
 	game.add.existing(this);
