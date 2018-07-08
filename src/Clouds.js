@@ -47,13 +47,14 @@ function Clouds(){
 				}
 
 				var star = this.make.sprite(0, 0, 'cloud');
-				star.anchor.set(0.5);
-				//star.angle = getRandom(-180, 180);
 
 				sprites.addChild(star);
 
 				stars.push(star);
+				
 			}
+			
+			var navbar = new NavBar(this);
 		},
 		
 		update: function() {

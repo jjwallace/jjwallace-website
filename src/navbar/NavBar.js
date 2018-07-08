@@ -12,6 +12,7 @@ class NavBar {
 		this.graphics;
 		this.menuWidth = 200;
     this.scope = scope;
+		this.gameWidth = scope.game.width;
 
 		//Define the menu polygon
 		this.pol = {
@@ -41,6 +42,15 @@ class NavBar {
 		this.graphics.drawPolygon(this.poly.points);
 		this.graphics.alpha = 0.9;
 		this.graphics.endFill();
+		
+		function menuClick(){
+			this.toggleNavbar(scope);
+		}
+		
+		this.imgMenu = scope.add.sprite(this.gameWidth, 0, 'menu');
+		this.imgMenu.anchor.set(1,0);
+		this.imgMenu.inputEnabled = true;
+		this.imgMenu.events.onInputDown.add(menuClick, this);
 
 		//Turn graphics into menu
 		this.menuBackground = scope.game.add.sprite(this.menuWidth, 0);
@@ -54,9 +64,7 @@ class NavBar {
 	}
 
 	clickOnGraphics(){
-		console.log('Close!');
-		this.toggle = false;
-		this.scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.Out, true);
+		this.toggleNavbar(this.scope)
 	}
 
 	toggleNavbar(scope){
@@ -65,10 +73,12 @@ class NavBar {
 			this.toggle = true;
       console.log('Open!');
 			scope.add.tween(this.menuBackground).to({ x: -this.menuWidth, y: 0 }, 200, Phaser.Easing.Linear.In, true);
+			this.scope.game.add.tween(this.imgMenu).to({ x: this.gameWidth-200, y: 0 }, 200, Phaser.Easing.Back.Out, true);
 		}else{
 			this.toggle = false;
       console.log('Close!');
 			scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.In, true);
+			this.scope.game.add.tween(this.imgMenu).to({ x: this.gameWidth, y: 0 }, 300, Phaser.Easing.Back.Out, true);
 		}
 	}
 

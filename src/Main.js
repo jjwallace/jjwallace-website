@@ -18,10 +18,7 @@ function MainState(){
 				navbar.toggleNavbar(this);
 			}
 
-			var imgMenu = this.add.sprite(this.game.width, 0, 'menu');
-			imgMenu.anchor.set(1,0);
-			imgMenu.inputEnabled = true;
-			imgMenu.events.onInputDown.add(menuClick, this);
+			
 
 			var imgLogo = this.add.sprite(middleScreen, 100, 'logo');
 			var logoSize = {width: imgLogo.width, height: imgLogo.height}
@@ -62,7 +59,7 @@ JellyFish = function (objectScope) {
 		return Math.floor(Math.random() * (max - min) + min);
 	}
 
-	Phaser.Sprite.call(this, game, getRandom(0, game.world.width), getRandom(0, game.world.height), 'spJellyFish');
+	Phaser.Sprite.call(this, game, getRandom(0, game.world.width), getRandom(0, game.world.height), 'jellyfish');
 	this.animations.add('default');
 	this.animations.play('default', 30, true);
 	this.animations.getAnimation('default').frame = getRandom(2, this.animations.getAnimation('default').frameTotal);
