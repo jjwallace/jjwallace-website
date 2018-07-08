@@ -59,8 +59,12 @@ class NavBar {
 		this.menuBackground.events.onInputDown.add(this.clickOnGraphics, this);
 
 		//Introduce yourself -Navbar
-		console.log('Hello! -Navbar');
-
+		console.log('Hello! -Navbar');	
+		
+		for (var i = 0; i < 4; i++) {
+			this.menuItem(scope, i);
+		}
+		
 	}
 
 	clickOnGraphics(){
@@ -82,16 +86,18 @@ class NavBar {
 		}
 	}
 
-	// class CreatItem {
-	// 	constructor() {
-	// 		var imgMenu = this.add.sprite(this.game.width, 0, img);
-	// 		item.anchor.set(0.5,0);
-	// 		item.inputEnabled = true;
-	// 		item.events.onInputDown.add(clickMe, this);
-	// 	}
-  //
-	// 	function clickMe(){
-	// 		game.state.start(state);
-	// 	}
-	// }
+	menuItem(scope, i) {
+	 
+		this.item = scope.add.sprite(this.gameWidth + this.menuWidth / 2, 40 + i * 140, 'atom');
+		this.item.anchor.set(0.5,0);
+		this.item.inputEnabled = true;
+		this.item.events.onInputDown.add(clickMe, this);
+		
+		this.menuBackground.addChild(this.item);
+	 	
+	 	function clickMe(){
+			scope.state.start('Clouds');
+	 	}
+		
+	 }
 }
