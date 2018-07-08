@@ -27,10 +27,12 @@ BasicGame.Preloader.prototype = {
 			this.load.image('logo', 'assets/sprite/logo.png');
 			this.load.image('menu', 'assets/sprite/menu.png');
 		
+			this.load.image('cloud', 'assets/sprite/cloud.png');
+		
 	},
 
 	create: function () {
-		this.state.start('Main');
+		this.state.start('Clouds');
 	},
 	
 };

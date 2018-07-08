@@ -29,10 +29,11 @@ function MainState(){
 			imgLogo.scale.setTo(0.1, 0.1);
 			this.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
 
-			var btnLoc = {x: middleScreen, y: imgLogo.y + (logoSize.height) + 60}
+			var btnLoc = {x: middleScreen, y: imgLogo.y + (logoSize.height) + 120}
 			var imgButton = this.add.sprite(btnLoc.x, this.game.height + 200, 'button');
-			imgButton.anchor.set(0.5, 0);
+			imgButton.anchor.set(0.5, 0.5);
 			this.add.tween(imgButton).to({ x: btnLoc.x, y: btnLoc.y }, 500, Phaser.Easing.Back.Out, true);
+			this.add.tween(imgButton.scale).to({ x: 0.9, y: 0.9 }, 500, Phaser.Easing.Linear.None, true, 0, 1000, true);
 			imgButton.inputEnabled = true;
 			imgButton.events.onInputDown.add(menuClick, this);
 
