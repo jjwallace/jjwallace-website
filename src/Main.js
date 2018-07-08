@@ -12,7 +12,10 @@ function MainState(){
 
 	BasicGame.Main.prototype = {
 		create: function () {
+			//this.camera.flash('#000000');
 			var middleScreen = this.game.width / 2;
+			
+			this.stage.backgroundColor = "#0075FF";
 
 			function menuClick(game){
 				navbar.toggleNavbar(this);

@@ -22,6 +22,8 @@ function Clouds(){
 
 	BasicGame.Clouds.prototype = {
 		create: function () {
+			//this.camera.flash('#000000');
+			
 			this.stage.backgroundColor = "#91c8e8";
 			
 			if (this.renderType === Phaser.WEBGL){

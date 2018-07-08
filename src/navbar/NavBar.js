@@ -8,9 +8,32 @@
 class NavBar {
   constructor(scope) {
 		this.toggle = false;
+		
+		//********************************************//
+		//OPTIONS AND MODIFICATIONS
+		//MENU ITEMS HERE - FEEL FREE TO ADD MORE
+		
+		this.JSON = {
+					menu: [
+						{state: 'Clouds', img: 'atom', animated: true},
+						{state: 'Main', img: 'jelly', animated: false},
+						{state: 'Clouds', img: 'atom', animated: false},
+						{state: 'Clouds', img: 'atom', animated: false},
+					],
+					style: {
+						width: 200, 
+						backgroundColor: 0xFFFFFF, 
+						animated: false
+					},
+				}
+		
+		//********************************************//
+		
+		this.menuWidth = this.JSON.style.width;
+		this.navbarBackgroundColor = this.JSON.style.backgroundColor;
+		
 		this.poly;
 		this.graphics;
-		this.menuWidth = 200;
     this.scope = scope;
 		this.gameWidth = scope.game.width;
 
@@ -38,7 +61,7 @@ class NavBar {
 		//Convert the polygon into a graphic element
 		this.graphics = scope.game.add.graphics(0, 0);
 
-		this.graphics.beginFill(0xFFFFFF);
+		this.graphics.beginFill(this.navbarBackgroundColor);
 		this.graphics.drawPolygon(this.poly.points);
 		this.graphics.alpha = 0.9;
 		this.graphics.endFill();
@@ -58,21 +81,46 @@ class NavBar {
 		this.menuBackground.inputEnabled = true;
 		this.menuBackground.events.onInputDown.add(this.clickOnGraphics, this);
 
+		//PRELOAD
+		this.preload(this);
+		
 		//Introduce yourself -Navbar
 		console.log('Hello! -Navbar');	
-		
-		for (var i = 0; i < 4; i++) {
-			this.menuItem(scope, i);
+		console.log(this.JSON.menu);
+		for (var i = 0; i < this.JSON.menu.length; i++) {
+			this.menuItem(scope, i, this.JSON.menu[i].img, this.JSON.menu[i].state);
 		}
 		
 	}
+	
+	//PRELOAD NAVBAR MENU ITEMS (animated spritesheet or just img);
+	preload(navbar) {
+		var JSON = navbar.JSON;
+		var scope = navbar.scope;
+		console.log(JSON)
+		for (var i = 0; i < JSON.menu.length; i++) {
+			console.log(JSON.menu[i].img)
+			if(JSON.menu[i].animated == true){
+				scope.load.atlas(
+					JSON.menu[i].img, 
+					'assets/sprite/' + JSON.menu[i].img+ '.png', 'assets/sprite/' + JSON.menu[i].img+ '.json', 
+					Phaser.Loader.TEXTURE_ATLAS_JSON_HASH
+				);
+			}else{
+				scope.game.load.image(
+					JSON.menu[i].img, 'assets/sprite/' + JSON.menu[i].img+ '.png'
+				);
+			}
+		}
+	}
 
+	//TOGGLE NAVBAR : BUTTON : FUNCTION
 	clickOnGraphics(){
 		this.toggleNavbar(this.scope)
 	}
-
+	
+	//TOGGLE ON / OFF NAVBAR WITH ANIMATIONS
 	toggleNavbar(scope){
-
 		if(this.toggle == false){
 			this.toggle = true;
       console.log('Open!');
@@ -81,14 +129,15 @@ class NavBar {
 		}else{
 			this.toggle = false;
       console.log('Close!');
-			scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 200, Phaser.Easing.Linear.In, true);
+			scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 100, Phaser.Easing.Linear.In, true);
 			this.scope.game.add.tween(this.imgMenu).to({ x: this.gameWidth, y: 0 }, 300, Phaser.Easing.Back.Out, true);
 		}
 	}
 
-	menuItem(scope, i) {
-	 
-		this.item = scope.add.sprite(this.gameWidth + this.menuWidth / 2, 40 + i * 140, 'atom');
+	//CREATE A MENU ITEM
+	menuItem(scope, i, img, state) {
+		console.log('Create Menu Item: ', i, img, state)
+		this.item = scope.add.sprite(this.gameWidth + this.menuWidth / 2, 40 + i * 140, img);
 		this.item.anchor.set(0.5,0);
 		this.item.inputEnabled = true;
 		this.item.events.onInputDown.add(clickMe, this);
@@ -96,8 +145,7 @@ class NavBar {
 		this.menuBackground.addChild(this.item);
 	 	
 	 	function clickMe(){
-			scope.state.start('Clouds');
+			this.scope.state.start(state);
 	 	}
-		
-	 }
+	}
 }
