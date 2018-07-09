@@ -57,7 +57,37 @@ function Clouds(){
 			}
 			
 			var navbar = new NavBar(this);
+			
+			this.textAnimation('KEITH\nIS\nA\nWHORE!');
 		},
+		
+		textAnimation: function(text){
+			
+			var sprite;
+			var text;
+			
+			sprite = this.add.sprite(this.world.centerX, this.world.centerY);
+			sprite.inputEnabled = true;
+			sprite.input.enableDrag();
+
+			var style = { font: "42px Arial Black", fill: "#c51b7d" ,align: "center", boundsAlignH: "center", boundsAlignV: "middle" };
+
+			text = this.add.text(0, 0, text, style);
+			//text.stroke = "#de77ae";
+			//text.strokeThickness = 16;
+			//text.setShadow(2, 2, "#333333", 10, true, true);
+			text.anchor.set(0.5);
+			
+			sprite.addChild(text);
+			
+			sprite.scale.set(0.1)
+				
+			var aniTime = 2000;
+			
+			this.add.tween(sprite.scale).to({ x: 1, y: 1 }, aniTime, Phaser.Easing.Back.Out, true);
+			this.add.tween(sprite).to( { alpha: 1 }, aniTime, "Linear", true);
+		},
+		
 		
 		update: function() {
 
