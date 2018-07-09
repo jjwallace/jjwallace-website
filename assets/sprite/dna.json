@@ -1,0 +1,172 @@
+{"frames": [
+
+{
+	"filename": "dna0001.png",
+	"frame": {"x":1,"y":1,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0002.png",
+	"frame": {"x":57,"y":1,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0003.png",
+	"frame": {"x":113,"y":1,"w":53,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":53,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0004.png",
+	"frame": {"x":168,"y":1,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0005.png",
+	"frame": {"x":1,"y":71,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0006.png",
+	"frame": {"x":57,"y":71,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0007.png",
+	"frame": {"x":113,"y":71,"w":53,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":53,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0008.png",
+	"frame": {"x":168,"y":71,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0009.png",
+	"frame": {"x":1,"y":141,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0010.png",
+	"frame": {"x":57,"y":141,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0011.png",
+	"frame": {"x":113,"y":141,"w":53,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":53,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0012.png",
+	"frame": {"x":168,"y":141,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0013.png",
+	"frame": {"x":1,"y":211,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0014.png",
+	"frame": {"x":57,"y":211,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0015.png",
+	"frame": {"x":113,"y":211,"w":53,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":53,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0016.png",
+	"frame": {"x":168,"y":211,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0017.png",
+	"frame": {"x":1,"y":281,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0018.png",
+	"frame": {"x":57,"y":281,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0019.png",
+	"frame": {"x":113,"y":281,"w":53,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":53,"h":68},
+	"sourceSize": {"w":54,"h":68}
+},
+{
+	"filename": "dna0020.png",
+	"frame": {"x":168,"y":281,"w":54,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":68},
+	"sourceSize": {"w":54,"h":68}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "dna.png",
+	"format": "RGBA8888",
+	"size": {"w":223,"h":350},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7aa624bdeae02deaf49bd6954c3eeeab:a724bfb669ec7c07c5f29729d9f6465d:9c1028de0ddabde13ac9ecad187c5685$"
+}
+}
