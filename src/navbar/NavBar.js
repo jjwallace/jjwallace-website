@@ -15,9 +15,12 @@ class NavBar {
 
 		this.JSON = {
 					menu: [
-						{state: 'Clouds', img: 'item1', animated: true, url: 'test'},
-						{state: 'Main', img: 'item2', animated: true, url: 'test2'},
-						{state: 'Clouds', img: 'item3', animated: true, url: 'test3'},
+						{state: 'Clouds', img: 'item1', animated: true, 
+						 	type: 'state', url: 'test'},
+						{state: 'Main', img: 'item2', animated: true, 
+						 	type: 'state',url: 'test2'},
+						{state: 'Clouds', img: 'item3', animated: true, 
+						 	type: 'state',url: 'test3'},
 					],
 					style: {
 						width: 200,
@@ -105,9 +108,18 @@ class NavBar {
 			this.menuBackground.addChild(this.item);
 			
 			this.item.myUrl = state.JSON.menu[i].url;
+			this.item.state = state.JSON.menu[i].state;
+			this.item.type = state.JSON.menu[i].type;
 
 			function clickMe(){
-				console.log(this.myUrl);
+				if(this.type == 'state'){
+					console.log(this.state);
+					scope.state.start(this.state);
+				}else{
+					console.log(this.myUrl);
+					window.open(this.myUrl, "_blank");
+				}
+				
 				//scope.state.start(this.JSON.menu[i].state);
 				//window.open(this.myUrl, "_blank");
 			}

@@ -41,7 +41,7 @@ BasicGame.Preloader.prototype = {
 	},
 
 	create: function () {
-		this.state.start('DnaMenu');
+		this.state.start('Main');
 	},
 	
 };

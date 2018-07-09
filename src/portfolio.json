@@ -1,0 +1,21 @@
+{
+	menu: [
+		{name: 'Clouds', img: 'item1', animated: true, 
+			items: [
+				{name: 'Game1', img: 'item1', animated: true},
+				{name: 'Game1', img: 'item1', animated: true},
+				{name: 'Game1', img: 'item1', animated: true},
+				{name: 'Game1', img: 'item1', animated: true},
+				{name: 'Game1', img: 'item1', animated: true},
+				{name: 'Game1', img: 'item1', animated: true}
+			]
+		},
+		{name: 'Main', img: 'item2', animated: true},
+		{name: 'Clouds', img: 'item3', animated: true},
+	],
+	style: {
+		width: 200,
+		backgroundColor: 0xFFFFFF,
+		animated: false
+	},
+}
