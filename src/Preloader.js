@@ -23,6 +23,15 @@ BasicGame.Preloader.prototype = {
 			this.load.setPreloadSprite(this.preloadBar);
 			this.load.atlas('jellyfish', 'assets/sprite/sp_jellyfish.png', 'assets/sprite/sp_jellyfish.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 		
+			this.load.setPreloadSprite(this.preloadBar);
+			this.load.atlas('item1', 'assets/sprite/item1.png', 'assets/sprite/item1.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+		
+			this.load.setPreloadSprite(this.preloadBar);
+			this.load.atlas('item2', 'assets/sprite/item2.png', 'assets/sprite/item2.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+
+			this.load.setPreloadSprite(this.preloadBar);
+			this.load.atlas('item3', 'assets/sprite/item3.png', 'assets/sprite/item3.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+		
 			this.load.image('button', 'assets/sprite/button.png');
 			this.load.image('logo', 'assets/sprite/logo.png');
 			this.load.image('menu', 'assets/sprite/menu.png');
