@@ -25,11 +25,11 @@ function MainState(){
 				new JellyFish(this, true, 100);
 			}
 
-			var imgLogo = this.add.sprite(middleScreen, 100, 'logo');
+			var imgLogo = this.add.sprite(middleScreen, 350, 'logo');
 			var logoSize = {width: imgLogo.width, height: imgLogo.height}
-			imgLogo.anchor.set(0.5, 0);
-			//imgLogo.scale.setTo(0.1, 0.1);
-			//this.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
+			imgLogo.anchor.set(0.5, 0.5);
+			imgLogo.scale.setTo(0.1, 0.1);
+			this.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
 
 			var imgButton = this.add.sprite(middleScreen, this.game.height - 120, 'tubes');
 			imgButton.anchor.set(0.5, 0.5);
@@ -37,7 +37,7 @@ function MainState(){
 			imgButton.animations.play('default', 30, true);
 			
 //			this.add.tween(imgButton).to({ x: btnLoc.x, y: btnLoc.y }, 500, Phaser.Easing.Back.Out, true);
-//			this.add.tween(imgButton.scale).to({ x: 0.9, y: 0.9 }, 500, Phaser.Easing.Linear.None, true, 0, 1000, true);
+			this.add.tween(imgButton.scale).to({ x: 0.9, y: 0.9 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
 			imgButton.inputEnabled = true;
 			imgButton.events.onInputDown.add(menuClick, this);
 
@@ -103,7 +103,7 @@ JellyFish.prototype.update = function(){
 		var game = sprite.game;
 		var boundsSize = 100;
 		var worldWidth = game.world.width;
-		var worldHeight = game.world.height;
+		var worldHeight = game.world.height-100;
 
 		if(sprite.x > (worldWidth + boundsSize)){
 			sprite.x = 0 - boundsSize;
@@ -166,19 +166,27 @@ SeaHorse = function (objectScope) {
 	}
 	
 	var horse = this;
+	
+	var moveMe;
 
 	function animateDiv(){
 		var newq = makeNewPosition();
-		console.log(newq);
 		if(newq[0] < horse.x){
 			horse.scale.setTo(horse.size,horse.size);
 		}else{
 			horse.scale.setTo(-horse.size,horse.size);
 		}
 		moveMe = game.add.tween(horse).to({ x: newq[0], y: newq[1] }, 2000, Phaser.Easing.Cubic.InOut, true);
-		console.log(horse);
 		moveMe.onComplete.add(animateDiv, this);
 	};
+	
+	function clickMe(){
+		//moveMe.tween.remove();
+	}
+	
+	this.inputEnabled = true;
+	this.events.onInputDown.add(clickMe, this);
+	this.input.enableDrag();
 	
 	animateDiv();
 };
