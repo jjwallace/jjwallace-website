@@ -10,7 +10,7 @@ Sprite Sheet Animations
 Hotloading Portfolio Items
 
 Demo
-[WEBSITE/](https://jjwallace.github.io/jjwallace-website/)
+[WEBSITE](https://jjwallace.github.io/jjwallace-website/)
 
 ![alt text](https://raw.githubusercontent.com/jjwallace/Pink-JellyFish/master/assets/screenshot/jellyfish.png)
 

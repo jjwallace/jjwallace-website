@@ -28,18 +28,21 @@ function MainState(){
 			var imgLogo = this.add.sprite(middleScreen, 100, 'logo');
 			var logoSize = {width: imgLogo.width, height: imgLogo.height}
 			imgLogo.anchor.set(0.5, 0);
-			imgLogo.scale.setTo(0.1, 0.1);
-			this.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
+			//imgLogo.scale.setTo(0.1, 0.1);
+			//this.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
 
-			var btnLoc = {x: middleScreen, y: imgLogo.y + (logoSize.height) + 120}
-			var imgButton = this.add.sprite(btnLoc.x, this.game.height + 200, 'button');
+			var btnLoc = {x: middleScreen, y: (this.game.height) - 120}
+			var imgButton = this.add.sprite(btnLoc.x, this.game.height - 200, 'tubes');
 			imgButton.anchor.set(0.5, 0.5);
-			this.add.tween(imgButton).to({ x: btnLoc.x, y: btnLoc.y }, 500, Phaser.Easing.Back.Out, true);
-			this.add.tween(imgButton.scale).to({ x: 0.9, y: 0.9 }, 500, Phaser.Easing.Linear.None, true, 0, 1000, true);
+			imgButton.animations.add('default');
+			imgButton.animations.play('default', 30, true);
+			
+//			this.add.tween(imgButton).to({ x: btnLoc.x, y: btnLoc.y }, 500, Phaser.Easing.Back.Out, true);
+//			this.add.tween(imgButton.scale).to({ x: 0.9, y: 0.9 }, 500, Phaser.Easing.Linear.None, true, 0, 1000, true);
 			imgButton.inputEnabled = true;
 			imgButton.events.onInputDown.add(menuClick, this);
 
-			for (var i = 0; i < 20; i++) {
+			for (var i = 0; i < 10; i++) {
 				new JellyFish(this, false, 0);
 			}
 			var game = BasicGame.Main;
