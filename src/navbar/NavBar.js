@@ -116,6 +116,7 @@ class NavBar{
 				if(state.toggle == true){
 					state.toggleNavbar();
 				}
+				
 			}else if(tapXEnd < tapXStart - edgeSensitivity){
 				if(tapXStart > state.gameWidth - edgeSensitivity){
 					state.toggleNavbar();
@@ -156,6 +157,8 @@ class NavBar{
 
 	//TOGGLE NAVBAR : BUTTON : FUNCTION
 	toggleNavbar(){
+		this.scope.world.bringToTop(this.imgMenu);
+		console.log(this.imgMenu);
 		this.toggleNavbarInternal(this.scope)
 	}
 

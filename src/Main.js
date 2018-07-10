@@ -18,8 +18,9 @@ function MainState(){
 			this.stage.backgroundColor = "#0075FF";
 
 			function menuClick(game){
-				navbar.toggleNavbar(this);
-			}
+				this.add.tween(imgLogo).to({ x: -300}, 500, Phaser.Easing.Back.In, true);
+				newNote = new NoteBox(this, middleScreen, 350);
+			} 
 
 			for (var i = 0; i < 20; i++) {
 				new JellyFish(this, true, 100);
@@ -33,11 +34,12 @@ function MainState(){
 
 			var imgButton = this.add.sprite(middleScreen, this.game.height - 120, 'tubes');
 			imgButton.anchor.set(0.5, 0.5);
+			imgButton.scale.setTo(0);
 			imgButton.animations.add('default');
 			imgButton.animations.play('default', 30, true);
 			
-//			this.add.tween(imgButton).to({ x: btnLoc.x, y: btnLoc.y }, 500, Phaser.Easing.Back.Out, true);
-			this.add.tween(imgButton.scale).to({ x: 0.9, y: 0.9 }, 2000, Phaser.Easing.Linear.None, true, 0, 1000, true);
+			//this.add.tween(imgButton).to({ x: middleScreen, y: this.game.height - 120 }, 6000, Phaser.Easing.Back.Out, true);
+			this.add.tween(imgButton.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true, 1500);
 			imgButton.inputEnabled = true;
 			imgButton.events.onInputDown.add(menuClick, this);
 
@@ -102,8 +104,8 @@ JellyFish.prototype.update = function(){
 	function checkBounds(sprite){
 		var game = sprite.game;
 		var boundsSize = 100;
-		var worldWidth = game.world.width;
-		var worldHeight = game.world.height-100;
+		var worldWidth = game.width;
+		var worldHeight = game.height+100;
 
 		if(sprite.x > (worldWidth + boundsSize)){
 			sprite.x = 0 - boundsSize;
@@ -125,7 +127,71 @@ JellyFish.prototype.update = function(){
 
 
 
+NoteBox = function (objectScope, xGo, yGo) {
+	var game = objectScope.game;
+	this.alive = true;
 
+	Phaser.Sprite.call(this, game, game.width + 400, yGo , 'mebox');
+	this.anchor.set(0.5,0.5);
+	game.add.existing(this);
+
+	function makeNewPosition(){
+		var h = Math.floor(Math.random() * 200) - 100;
+		var w = Math.floor(Math.random() * 200) - 100;
+		var nh = game.width / 2 + h;
+		var nw = game.height - 100 + w;
+		return [nh,nw];    
+	}
+	
+	text = game.add.text(-this.width/2 + 10, -this.height/2 + 10, '', { font: "20pt Arial", fill: "#333333", stroke: "#888888", strokeThickness: 2, align: 'left', wordWrap: true, wordWrapWidth: 280  });
+	
+	this.addChild(text);
+
+	moveMe = game.add.tween(this).to({ x: xGo, y: yGo }, 800, Phaser.Easing.Cubic.InOut, true);
+	moveMe.onComplete.add(animateDiv, this);
+
+	var index = 0;
+	var line = '';
+	
+	var content = [
+		"Hi Keith, do you like the demo? Go make a poop sandwitch and try it with some green toast.  I am not really sure what else to write.  Is this to gamified?",
+	];
+	
+	function animateDiv(){
+		line = '';
+		updateLine();
+		game.time.events.repeat(80, content[index].length + 1, updateLine, this);
+	}
+	
+	function updateLine() {
+
+		if (line.length < content[index].length){
+			line = content[index].substr(0, line.length + 1);
+			// text.text = line;
+			text.setText(line);
+		}
+//		}else{
+//			//  Wait 2 seconds then start a new line
+//			game.time.events.add(Phaser.Timer.SECOND * 2, nextLine, this);
+//		}
+	}
+	//		moveMe.onComplete.add(animateDiv, this);
+	
+//	function animateDiv(){
+//		
+//		moveMe = game.add.tween(horse).to({ x: newq[0], y: newq[1] }, delay, Phaser.Easing.Cubic.InOut, true);
+//		moveMe.onComplete.add(animateDiv, this);
+//	};
+//
+//	this.inputEnabled = true;
+//	this.events.onInputDown.add(clickMe, this);
+//	this.input.enableDrag();
+//
+//	animateDiv();
+};
+
+NoteBox.prototype.constructor = NoteBox;
+NoteBox.prototype = Object.create(Phaser.Sprite.prototype);
 
 
 
@@ -148,7 +214,7 @@ SeaHorse = function (objectScope) {
 		return Math.floor(Math.random() * (max - min) + min);
 	}
 	
-	Phaser.Sprite.call(this, game, getRandom(0, game.width), getRandom(0, game.height), 'horse');
+	Phaser.Sprite.call(this, game, -40, 500, 'horse');
 	this.animations.add('default');
 	this.animations.play('default', 30, true);
 	this.animations.getAnimation('default').frame = getRandom(2, this.animations.getAnimation('default').frameTotal);
@@ -161,7 +227,7 @@ SeaHorse = function (objectScope) {
 		var h = Math.floor(Math.random() * 200) - 100;
 		var w = Math.floor(Math.random() * 200) - 100;
 		var nh = game.width / 2 + h;
-		var nw = game.height / 2 + w;
+		var nw = game.height - 100 + w;
 		return [nh,nw];    
 	}
 	
@@ -176,7 +242,12 @@ SeaHorse = function (objectScope) {
 		}else{
 			horse.scale.setTo(-horse.size,horse.size);
 		}
-		moveMe = game.add.tween(horse).to({ x: newq[0], y: newq[1] }, 2000, Phaser.Easing.Cubic.InOut, true);
+		var disX = horse.x - newq[0];
+		var disY = horse.y - newq[1];
+		if(disX < 0)(disX *= -1)
+		if(disY < 0)(disY *= -1)
+		var delay = (disX + disY)*10;
+		moveMe = game.add.tween(horse).to({ x: newq[0], y: newq[1] }, delay, Phaser.Easing.Cubic.InOut, true);
 		moveMe.onComplete.add(animateDiv, this);
 	};
 	
@@ -193,35 +264,3 @@ SeaHorse = function (objectScope) {
 
 SeaHorse.prototype.constructor = SeaHorse;
 SeaHorse.prototype = Object.create(Phaser.Sprite.prototype);
-
-SeaHorse.prototype.update = function(){
-
-//	this.xSpeed = Math.cos((this.angle)/180*Math.PI) * - this.acc;
-//	this.ySpeed = Math.sin((this.angle)/180*Math.PI) * - this.acc;
-//
-//	this.x += this.xSpeed;
-//	this.y += this.ySpeed;
-//
-//	//Reset if off screen
-//	function checkBounds(sprite){
-//		var game = sprite.game;
-//		var boundsSize = 100;
-//		var worldWidth = game.world.width;
-//		var worldHeight = game.world.height;
-//
-//		if(sprite.x > (worldWidth + boundsSize)){
-//			sprite.x = 0 - boundsSize;
-//		}
-//		if(sprite.x < (0 - boundsSize)){
-//			sprite.x = worldWidth + boundsSize;
-//		}
-//		if(sprite.y > (worldHeight + boundsSize)){
-//			sprite.y = 0 - boundsSize;
-//		}
-//		if(sprite.y < (0 - boundsSize)){
-//			sprite.y = worldHeight + boundsSize;
-//		}
-//	}
-//
-//	checkBounds(this);
-}

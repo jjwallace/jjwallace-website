@@ -46,7 +46,8 @@ BasicGame.Preloader.prototype = {
 		
 			this.load.image('logo', 'assets/sprite/logo.png');
 			this.load.image('menu', 'assets/sprite/menu.png');
-			//this.load.atlas('atom', 'assets/sprite/atom.png', 'assets/sprite/atom.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+			this.load.image('box', 'assets/sprite/box.png');
+			this.load.image('mebox', 'assets/sprite/mebox.png');
 			
 			this.load.image('cloud', 'assets/sprite/cloud.png');
 		

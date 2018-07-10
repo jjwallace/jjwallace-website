@@ -1,0 +1,92 @@
+{"frames": {
+
+"fish_jelly_shock0001.png":
+{
+	"frame": {"x":98,"y":193,"w":93,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":93,"h":43},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0002.png":
+{
+	"frame": {"x":1,"y":51,"w":102,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":47},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0003.png":
+{
+	"frame": {"x":101,"y":1,"w":101,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":101,"h":47},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0004.png":
+{
+	"frame": {"x":1,"y":1,"w":98,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":48},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0005.png":
+{
+	"frame": {"x":105,"y":50,"w":96,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":96,"h":47},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0006.png":
+{
+	"frame": {"x":105,"y":99,"w":95,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":95,"h":46},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0007.png":
+{
+	"frame": {"x":1,"y":100,"w":95,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":95,"h":46},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0008.png":
+{
+	"frame": {"x":98,"y":147,"w":95,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":95,"h":44},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0009.png":
+{
+	"frame": {"x":1,"y":148,"w":95,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":95,"h":43},
+	"sourceSize": {"w":102,"h":48}
+},
+"fish_jelly_shock0010.png":
+{
+	"frame": {"x":1,"y":193,"w":95,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":95,"h":43},
+	"sourceSize": {"w":102,"h":48}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "sp_jelly_shock.png",
+	"format": "RGBA8888",
+	"size": {"w":203,"h":237},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:59cca3b636af0059f72cb2158a2e39cf:a58a0d77febf110b7cf5eb5b1b59fc18:844c79ca8612580606cc096c5e703b1a$"
+}
+}
