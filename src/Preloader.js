@@ -40,11 +40,12 @@ BasicGame.Preloader.prototype = {
 		
 			this.load.atlas('tubes', 'assets/sprite/tubes.png', 'assets/sprite/tubes.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 		
+			this.load.atlas('horse', 'assets/sprite/sp_seahorse_orange.png', 'assets/sprite/sp_seahorse_orange.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+		
 			this.load.image('button', 'assets/sprite/button.png');
 		
 			this.load.image('logo', 'assets/sprite/logo.png');
 			this.load.image('menu', 'assets/sprite/menu.png');
-			this.load.image('title', 'assets/sprite/title.png');
 			//this.load.atlas('atom', 'assets/sprite/atom.png', 'assets/sprite/atom.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 			
 			this.load.image('cloud', 'assets/sprite/cloud.png');

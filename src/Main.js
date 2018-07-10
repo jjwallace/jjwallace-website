@@ -31,8 +31,7 @@ function MainState(){
 			//imgLogo.scale.setTo(0.1, 0.1);
 			//this.add.tween(imgLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
 
-			var btnLoc = {x: middleScreen, y: (this.game.height) - 120}
-			var imgButton = this.add.sprite(btnLoc.x, this.game.height - 200, 'tubes');
+			var imgButton = this.add.sprite(middleScreen, this.game.height - 120, 'tubes');
 			imgButton.anchor.set(0.5, 0.5);
 			imgButton.animations.add('default');
 			imgButton.animations.play('default', 30, true);
@@ -45,6 +44,9 @@ function MainState(){
 			for (var i = 0; i < 10; i++) {
 				new JellyFish(this, false, 0);
 			}
+			
+			new SeaHorse(this);
+			
 			var game = BasicGame.Main;
 
 			var navbar = new NavBar(this);
@@ -118,4 +120,100 @@ JellyFish.prototype.update = function(){
 	}
 
 	checkBounds(this);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SeaHorse = function (objectScope) {
+	var game = objectScope.game;
+	this.alive = true;
+	this.acc = 3;
+	this.size = 1.5;
+	
+	function getRandom(min, max){
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+	
+	Phaser.Sprite.call(this, game, getRandom(0, game.width), getRandom(0, game.height), 'horse');
+	this.animations.add('default');
+	this.animations.play('default', 30, true);
+	this.animations.getAnimation('default').frame = getRandom(2, this.animations.getAnimation('default').frameTotal);
+	this.anchor.set(0.5,0.5);
+	this.scale.setTo(this.size);
+	//this.angle = getRandom(-180, 180);
+	game.add.existing(this);
+	
+	function makeNewPosition(){
+		var h = Math.floor(Math.random() * 200) - 100;
+		var w = Math.floor(Math.random() * 200) - 100;
+		var nh = game.width / 2 + h;
+		var nw = game.height / 2 + w;
+		return [nh,nw];    
+	}
+	
+	var horse = this;
+
+	function animateDiv(){
+		var newq = makeNewPosition();
+		console.log(newq);
+		if(newq[0] < horse.x){
+			horse.scale.setTo(horse.size,horse.size);
+		}else{
+			horse.scale.setTo(-horse.size,horse.size);
+		}
+		moveMe = game.add.tween(horse).to({ x: newq[0], y: newq[1] }, 2000, Phaser.Easing.Cubic.InOut, true);
+		console.log(horse);
+		moveMe.onComplete.add(animateDiv, this);
+	};
+	
+	animateDiv();
+};
+
+SeaHorse.prototype.constructor = SeaHorse;
+SeaHorse.prototype = Object.create(Phaser.Sprite.prototype);
+
+SeaHorse.prototype.update = function(){
+
+//	this.xSpeed = Math.cos((this.angle)/180*Math.PI) * - this.acc;
+//	this.ySpeed = Math.sin((this.angle)/180*Math.PI) * - this.acc;
+//
+//	this.x += this.xSpeed;
+//	this.y += this.ySpeed;
+//
+//	//Reset if off screen
+//	function checkBounds(sprite){
+//		var game = sprite.game;
+//		var boundsSize = 100;
+//		var worldWidth = game.world.width;
+//		var worldHeight = game.world.height;
+//
+//		if(sprite.x > (worldWidth + boundsSize)){
+//			sprite.x = 0 - boundsSize;
+//		}
+//		if(sprite.x < (0 - boundsSize)){
+//			sprite.x = worldWidth + boundsSize;
+//		}
+//		if(sprite.y > (worldHeight + boundsSize)){
+//			sprite.y = 0 - boundsSize;
+//		}
+//		if(sprite.y < (0 - boundsSize)){
+//			sprite.y = worldHeight + boundsSize;
+//		}
+//	}
+//
+//	checkBounds(this);
 }
