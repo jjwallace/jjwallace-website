@@ -39,7 +39,7 @@ function MainState(){
 			imgButton.animations.play('default', 30, true);
 			
 			//this.add.tween(imgButton).to({ x: middleScreen, y: this.game.height - 120 }, 6000, Phaser.Easing.Back.Out, true);
-			this.add.tween(imgButton.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true, 1500);
+			this.add.tween(imgButton.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true, 1000);
 			imgButton.inputEnabled = true;
 			imgButton.events.onInputDown.add(menuClick, this);
 
@@ -154,13 +154,13 @@ NoteBox = function (objectScope, xGo, yGo) {
 	var line = '';
 	
 	var content = [
-		"Hi Keith, do you like the demo? Go make a poop sandwitch and try it with some green toast.  I am not really sure what else to write.  Is this to gamified?",
+		"JJ: I am a Product Designer & Software Developer specializing in highly interactive we experiances.  You are surounded by a jelly fish bloom. Yes you are still in your browser...",
 	];
 	
 	function animateDiv(){
 		line = '';
 		updateLine();
-		game.time.events.repeat(80, content[index].length + 1, updateLine, this);
+		game.time.events.repeat(40, content[index].length + 1, updateLine, this);
 	}
 	
 	function updateLine() {
