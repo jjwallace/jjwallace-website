@@ -5,8 +5,12 @@
 * CREATOR: http://www.jjwallace.info/
 */
 
-class NavBar {
+class NavBar{
+	
+	
+	
   constructor(scope) {
+		
 		this.toggle = false;
 
 		//********************************************//
@@ -15,6 +19,8 @@ class NavBar {
 
 		this.JSON = {
 					menu: [
+						{state: 'Main', img: 'octoMan', animated: true, 
+						 type: 'state',url: 'test3'},
 						{state: 'Clouds', img: 'item1', animated: true, 
 						 	type: 'state', url: 'test'},
 						{state: 'Main', img: 'item2', animated: true, 
@@ -81,19 +87,44 @@ class NavBar {
 		this.menuBackground = scope.game.add.sprite(this.menuWidth, 0);
 		this.menuBackground.addChild(this.graphics);
 		this.menuBackground.inputEnabled = true;
-		this.menuBackground.events.onInputDown.add(this.clickOnGraphics, this);
+		this.menuBackground.events.onInputDown.add(this.toggleNavbar, this);
 
-//		//PRELOAD
-//		this.menuPreload();//.then(console.log('Hello! -Navbar'));
-//    scope.game.load.onLoadStart.add(this.loadStart, scope);
-//    scope.game.load.onFileComplete.add(this.fileComplete, scope);
-//    scope.game.load.onLoadComplete.add(this.loadComplete, scope);
-
+		
 		//INTRODUCE YOURSELF -Navbar
     console.log('HELLO! - NavBar');
 		console.log(this.JSON.menu);
 		
+		this.swipControls(scope, this);
+		
 		this.addMenuItems(scope, this);
+	}
+	
+	swipControls(scope, state){
+		var tapXStart = 0;
+		var tapXEnd = 0;
+		//Define how close to right edge to toggle open navbar
+		//This prevents interference in with tap in game
+		var edgeSensitivity = 20;
+
+		function tapDown(){
+			tapXStart = scope.input.x;
+		}
+
+		function tapUp(){
+			tapXEnd = scope.input.x;
+			if(tapXEnd > tapXStart + 50){
+				if(state.toggle == true){
+					state.toggleNavbar();
+				}
+			}else if(tapXEnd < tapXStart - edgeSensitivity){
+				if(tapXStart > state.gameWidth - edgeSensitivity){
+					state.toggleNavbar();
+				}
+			}
+		}
+
+		scope.input.onDown.add(tapDown, this);
+		scope.input.onUp.add(tapUp, this);
 	}
 	
 	addMenuItems(scope, state){
@@ -119,69 +150,17 @@ class NavBar {
 					console.log(this.myUrl);
 					window.open(this.myUrl, "_blank");
 				}
-				
-				//scope.state.start(this.JSON.menu[i].state);
-				//window.open(this.myUrl, "_blank");
 			}
 		}
 	}
-
-  loadStart() {
-  	console.log('LOADING....');
-  }
-
-	//PRELOAD NAVBAR MENU ITEMS (animated spritesheet or just img);
-	menuPreload() {
-		console.log('HELLO PRELOAD!');
-		for (var i = 0; i < this.JSON.menu.length; i++) {
-			if(this.JSON.menu[i].animated == true){
-				this.scope.load.atlas(
-					this.JSON.menu[i].img,
-					'assets/sprite/' + this.JSON.menu[i].img+ '.png', 'assets/sprite/' + this.JSON.menu[i].img+ '.json',
-					Phaser.Loader.TEXTURE_ATLAS_JSON_HASH
-				);
-			}else{
-				this.scope.game.load.image(
-					this.JSON.menu[i].img, 'assets/sprite/' + this.JSON.menu[i].img+ '.png'
-				);
-			}
-		}
-	}
-
-  fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {
-    	console.log("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
-      var makeMenuItem = (scope, i, img, state) => {
-        console.log('Create Menu Item: ', i, img, state)
-
-        this.item = scope.add.sprite(this.gameWidth + this.menuWidth / 2, 40 + i * 140, img);
-        this.item.anchor.set(0.5,0);
-        this.item.inputEnabled = true;
-        this.item.events.onInputDown.add(clickMe, this);
-        this.menuBackground.addChild(this.item);
-
-        function clickMe(){
-          scope.state.start(state);
-        }
-      }
-      var i = 0;
-      var state = 'Clouds';
-      makeMenuItem(scope, i, cacheKey, state);
-  }
-
-  loadComplete() {
-  	console.log("Loaded All Menu Items");
-  }
-
-  // ********************* PRELOAD END ********************* //
-
 
 	//TOGGLE NAVBAR : BUTTON : FUNCTION
-	clickOnGraphics(){
-		this.toggleNavbar(this.scope)
+	toggleNavbar(){
+		this.toggleNavbarInternal(this.scope)
 	}
 
 	//TOGGLE ON / OFF NAVBAR WITH ANIMATIONS
-	toggleNavbar(scope){
+	toggleNavbarInternal(scope){
 		if(this.toggle == false){
 			this.toggle = true;
       console.log('* OPEN NAVBAR!');

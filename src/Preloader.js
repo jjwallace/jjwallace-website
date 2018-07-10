@@ -19,6 +19,13 @@ BasicGame.Preloader.prototype = {
 			this.preloadBar = this.add.sprite(this.world.centerX, this.world.centerY + loaderOffset, 'preloaderBar');
 			this.preloadBar.anchor.setTo(0.5, 0.5);
 			this.background.anchor.setTo(0.5, 0.5);
+		
+			var loadLogo = this.add.sprite(this.world.centerX, this.world.centerY - 110, 'octoMan');
+			loadLogo.anchor.set(0.5, 0);
+			loadLogo.scale.setTo(0.1, 0.1);
+			loadLogo.animations.add('default');
+			loadLogo.animations.play('default', 30, true);
+			this.add.tween(loadLogo.scale).to({ x: 1, y: 1 }, 500, Phaser.Easing.Back.Out, true);
 
 			this.load.setPreloadSprite(this.preloadBar);
 			this.load.atlas('jellyfish', 'assets/sprite/sp_jellyfish.png', 'assets/sprite/sp_jellyfish.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);

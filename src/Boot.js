@@ -36,7 +36,8 @@ BasicGame.Boot.prototype = {
     },
 
     preload: function () {
-        var myDir = "assets/"
+        var myDir = "assets/";
+			this.load.atlas('octoMan', 'assets/sprite/octo.png', 'assets/sprite/octo.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
         this.load.image('preloaderBackground', 'assets/sprite/sp_load_back.png');
         this.load.image('preloaderBar', 'assets/sprite/sp_load_fore.png');
     },

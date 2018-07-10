@@ -11,7 +11,7 @@ function Clouds(){
 																	 };
 	
 	var distance = 300;
-	var speed = 0;
+	var speed = 4;
 	var stars;
 
 	var max = 60;
@@ -31,24 +31,6 @@ function Clouds(){
 	
 	BasicGame.Clouds.prototype = {
 		create: function () {
-			//this.camera.flash('#000000');
-			
-			
-			
-			//SWIPE
-			this.input.onUp.add(this.mouseUp, this);
-			this.input.onDown.add(this.mouseDown, this);
-			
-			x = this.world.centerX;
-			y = this.world.centerY;
-			
-			var style = { font: "42px Arial Black", fill: "#333333" , align: "center", boundsAlignH: "center", boundsAlignV: "middle" };
-
-			this.loadingText = this.add.text(this.game.centerX, 60, 'test', style);
-			//text.stroke = "#de77ae";
-			//text.strokeThickness = 16;
-			//text.setShadow(2, 2, "#333333", 10, true, true);
-			this.loadingText.anchor.set(0.5);
 			
 			this.stage.backgroundColor = "#91c8e8";
 			
@@ -89,33 +71,6 @@ function Clouds(){
 			
 			this.textAnimation('TEST\nIS\nTEST!');
 			
-			this.loadContent(this);
-		},
-		
-		mouseDown: function() {
-			this.mouseIsDown = true;
-			this.startY = this.input.y;
-		},
-		
-		mouseUp: function() {
-			this.mouseIsDown = false;
-		},
-		
-		swipeDone: function() {
-			var endY = this.input.y;
-			if (endY < this.startY) {
-				//UP
-				speed = -3;
-//				for (var i = 0; i < images.length; i++){
-//					images[i].y -= 20;
-//				}
-			} else {
-				//DOWN
-				speed = 3;
-//				for (var i = 0; i < images.length; i++){
-//					images[i].y += 20;
-//				}
-			}
 		},
 		
 		textAnimation: function(text){
@@ -152,102 +107,7 @@ function Clouds(){
 			
 		},
 		
-		loadContent: function(state){
-
-			state.load.onLoadStart.add(state.loadStart, state);
-			state.load.onFileComplete.add(state.fileComplete, state);
-			state.load.onLoadComplete.add(state.loadComplete, state);
-
-			function menuClick(){
-				state.start(state);
-			}
-
-			var middleScreen = state.game.width / 2;
-			var btnLoc = {x: middleScreen, y: 100 }
-			var imgButton = state.add.sprite(btnLoc.x, 300, 'button');
-			imgButton.anchor.set(0.5, 0.5);
-
-			imgButton.inputEnabled = true;
-			imgButton.events.onInputDown.add(menuClick, state);
-
-		},
-		
-		start: function(game) {
-			for (var i = 1; i < 10; i++){
-				this.load.image('img' + i, 'assets/portfolio/branding/'+i+'.png');
-			}
-			this.load.start();
-			//this.imgButton.visible = false;
-		},
-
-		loadStart: function(state) {
-			this.loadingText.setText("Loading ...");
-		},
-
-		fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
-			var cX = this.world.centerX;
-			var cY = this.world.centerY;
-			this.loadingText.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
-			var newImage = this.add.image(cX, cY, cacheKey);
-			newImage.anchor.set(0.5);
-			//newImage.scale.set(z);
-			//z += 0.3;
-			//y += 30 * z;
-			
-			images.push(newImage);
-		},
-
-		loadComplete: function() {
-			this.loadingText.setText("Load Complete");
-			console.log['PRELOAD COMPLETE'];
-			for (var i = 0; i < images.length; i++){
-				var ratio = (i / images.length);
-				imagesZ[i] = -600 + ((290 + 600) * ratio);
-				imagesY[i] = 0;
-				console.log[ratio];
-				
-				
-			}
-			
-			imageBool = true;
-		},
-		
 		update: function() {
-			if (this.mouseIsDown == true) {
-				var distY = Math.abs(this.input.y - this.startY);
-				if (distY > 50) {
-					this.swipeDone();
-				}
-			}
-			
-			if(imageBool == true){
-				for (var i = 0; i < images.length; i++){
-					images[i].perspective = distance / (distance - imagesZ[i]);
-					//images[i].y = this.world.centerY + imagesY[i] * images[i].perspective;
-
-					imagesZ[i] += speed;
-					images[i].z = Math.floor(600 + imagesZ[i]);
-					console.log(images[i].z);
-
-					if (imagesZ[i] > 290){
-						imagesZ[i] -= 600;
-						this.world.sendToBack(starGroup);
-						//this.group.sendToBack(images[i]);
-					}
-					
-					if (imagesZ[i] < -600){
-						imagesZ[i] = 290;
-						this.world.sendToBack(starGroup);
-					}
-
-					
-					
-					images[i].alpha = Math.min(images[i].perspective / 2, 1);
-					images[i].scale.set(images[i].perspective / 2);
-					//stars[i].rotation += 0.1;
-
-				}
-			}
 			
 			for (var i = 0; i < max; i++){
 				stars[i].perspective = distance / (distance - zz[i]);
