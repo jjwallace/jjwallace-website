@@ -54,7 +54,7 @@ BasicGame.Preloader.prototype = {
 	},
 
 	create: function () {
-		this.state.start('ReelPreloader');
+		this.state.start('Main');
 	},
 	
 };
