@@ -143,7 +143,7 @@ NoteBox = function (objectScope, xGo, yGo) {
 		return [nh,nw];    
 	}
 	
-	text = game.add.text(-this.width/2 + 10, -this.height/2 + 10, '', { font: "20pt Arial", fill: "#333333", stroke: "#888888", strokeThickness: 2, align: 'left', wordWrap: true, wordWrapWidth: 280  });
+	text = game.add.text(-this.width/2 + 10, -this.height/2 + 10, '', { font: "16pt Arial", fill: "#333333", stroke: "#888888", strokeThickness: 2, align: 'left', wordWrap: true, wordWrapWidth: 280  });
 	
 	this.addChild(text);
 
@@ -154,7 +154,7 @@ NoteBox = function (objectScope, xGo, yGo) {
 	var line = '';
 	
 	var content = [
-		"JJ: I am a Product Designer & Software Developer specializing in highly interactive we experiances.  You are surounded by a jelly fish bloom. Yes you are still in your browser...",
+		"JJ: I am a Product Designer & Software Developer specializing in highly interactive web experiances.  You are surounded by a jelly fish bloom. Yes you are still in your browser...",
 	];
 	
 	function animateDiv(){

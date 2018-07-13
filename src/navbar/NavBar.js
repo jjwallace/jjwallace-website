@@ -20,13 +20,13 @@ class NavBar{
 		this.JSON = {
 					menu: [
 						{state: 'Main', img: 'octoMan', animated: true, 
-						 type: 'state',url: 'test3'},
-						{state: 'Clouds', img: 'item1', animated: true, 
+						 	type: 'state', url: 'test3'},
+						{state: 'FlipBook', img: 'item1', animated: true, 
 						 	type: 'state', url: 'test'},
-						{state: 'Main', img: 'item2', animated: true, 
-						 	type: 'state',url: 'test2'},
+						{state: 'ReelPreloader', img: 'item2', animated: true, 
+						 	type: 'state', url: 'test2'},
 						{state: 'Clouds', img: 'item3', animated: true, 
-						 	type: 'state',url: 'test3'},
+						 	type: 'state', url: 'test3'},
 					],
 					style: {
 						width: 200,
@@ -145,10 +145,10 @@ class NavBar{
 
 			function clickMe(){
 				if(this.type == 'state'){
-					console.log(this.state);
+					//console.log(this.state);
 					scope.state.start(this.state);
 				}else{
-					console.log(this.myUrl);
+					//console.log(this.myUrl);
 					window.open(this.myUrl, "_blank");
 				}
 			}
@@ -157,7 +157,7 @@ class NavBar{
 
 	//TOGGLE NAVBAR : BUTTON : FUNCTION
 	toggleNavbar(){
-		this.scope.world.bringToTop(this.imgMenu);
+		this.scope.world.bringToTop(this.menuBackground);
 		console.log(this.imgMenu);
 		this.toggleNavbarInternal(this.scope)
 	}

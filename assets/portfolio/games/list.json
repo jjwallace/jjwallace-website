@@ -1,0 +1,88 @@
+{
+	"items": [
+
+		{"img": "bioextract.jpg", 
+		"name": "Bio Extract",
+		"buildTime": 21, 
+		"client": "Client: US ARMY / FOX @ MRM-McCann Erickson",
+		"description": "Tap/Click strategy game: Angular/PhaserJS: Isolate mind controlling alien microbes.  Used for micro-biologist recruiting.",
+		"roll": "Programmer"},
+		
+		{"img": "uav.jpg", 
+		"name": "UAV",
+		"buildTime": 28, 
+		"client": "Client: US ARMY / FOX @ MRM-McCann Erickson",
+		"description": "Flight Simulator: Angular/PhaserJS: Pseudo 3D game mechanics build for canvas rendering.  Sprites are generated in a pool for recycling; then pan rotate and scale for effects.",
+		"roll": "Programmer"},
+		
+		{"img": "wonderrocket.jpg", 
+		"name": "Wonder Rocket",
+		"buildTime": 28, 
+		"client": "Publisher: Nickelodeon",
+		 "description": "Upgrade & Launch Game",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "nog.jpg",
+		"name": "Nog",
+		"buildTime": 14, 
+		"client": "Publisher: CoolBuddy",
+		"description": "Platformer with psychedelic themes.",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "gumdrophop.jpg", 
+		"name": "Gum Drop Hop",
+		"buildTime": 21, 
+		"client": "Publisher: MaxGame",
+		"description": "Non-Violent Platformer",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "theslob.jpg", 
+		"name": "The Slob",
+		"buildTime": 21, 
+		"client": "Publisher: PlayHub",
+		"description": "Platformer Adventure Game",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "ballsoflife.jpg", 
+		"name": "The Balls of Life",
+		"buildTime": 21, 
+		"client": "Publisher: MTV / Nickelodeon",
+		"description": "Platformer Comedy Game",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "lostfluid.jpg", 
+		"name": "Lost Fluid",
+		"buildTime": 21, 
+		"client": "Publisher: ",
+		"description": " ",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "ironturtle.jpg", 
+		"name": "Iron Turtle",
+		"buildTime": 21, 
+		"client": "Publisher: ArmorGames",
+		"description": "Puzzle Game",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "solarball.jpg", 
+		"name": "Solar Ball",
+		"buildTime": 8, 
+		"client": "Publisher: Cool Buddy",
+		"description": "Puzzle game, Pingball / Pool, Physics",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "beanfiend.jpg", 
+		"name": "Bean Fiend",
+		"buildTime": 16, 
+		"client": "Publisher: NextPlay",
+		"description": "Platformer Adventure Game",
+		"roll": "Designer, Animator, Programmer"},
+		
+		{"img": "redlander.jpg", 
+		"name": "Red Lander",
+		"buildTime": 3, 
+		"client": "Publisher: Mathfort",
+		"description": "Experimental Education Game",
+		"roll": "Designer, Animator, Programmer"}
+	]
+}

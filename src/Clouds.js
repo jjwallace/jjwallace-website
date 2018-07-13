@@ -11,7 +11,7 @@ function Clouds(){
 																	 };
 	
 	var distance = 300;
-	var speed = 4;
+	var speed = 1;
 	var stars;
 
 	var max = 60;
