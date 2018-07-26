@@ -47,6 +47,7 @@ function Clouds(){
 		
 		create: function () {
 			
+			
 			this.stage.backgroundColor = "#91c8e8";
 			
 			if (this.renderType === Phaser.WEBGL){
