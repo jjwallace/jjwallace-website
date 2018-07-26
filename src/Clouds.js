@@ -34,13 +34,15 @@ function Clouds(){
 		preload: function (){
 				this.load.text('jsonDrawings', 'assets/portfolio/drawings/list.json');
 				this.load.text('jsonGames', 'assets/portfolio/games/list.json');
-			this.load.image('back','assets/sprite/back.png');
+				this.load.image('back','assets/sprite/back.png');
 			
-			this.load.atlas('iconGames', 'assets/sprite/icon_games.png', 'assets/sprite/icon_games.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+			this.load.image('iconGames','assets/sprite/img_games.png');
+			this.load.image('iconArtwork','assets/sprite/img_artwork.png');
+			this.load.image('iconReel','assets/sprite/img_game_reel.png');
 			
-			this.load.atlas('iconArtwork', 'assets/sprite/icon_artwork.png', 'assets/sprite/icon_artwork.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
-			
-			this.load.atlas('iconOther', 'assets/sprite/icon_other.png', 'assets/sprite/icon_other.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+//			this.load.atlas('iconGames', 'assets/sprite/icon_games.png', 'assets/sprite/icon_games.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+//			this.load.atlas('iconArtwork', 'assets/sprite/icon_artwork.png', 'assets/sprite/icon_artwork.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+//			this.load.atlas('iconOther', 'assets/sprite/icon_other.png', 'assets/sprite/icon_other.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
 		},
 		
 		create: function () {
@@ -84,17 +86,30 @@ function Clouds(){
 					 type: 'state', url: 'jsonGames'},
 					{state: 'FlipBook', img: 'iconArtwork', animated: true, 
 					 type: 'state', url: 'jsonDrawings'},
-					{state: 'ReelPreloader', img: 'iconOther', animated: true, 
+					{state: 'ReelPreloader', img: 'iconReel', animated: true, 
 					 type: 'state', url: 'jsonGames'}
 				],
 			}
 			
 			function addMenuItems(scope, state){
 				for (var i = 0; i < menuJSON.menu.length; i++) {
-					this.item = scope.add.sprite(scope.world.centerX, 60 + i * 160, menuJSON.menu[i].img);
+					var myLocY = 100 + i * 220;
+					this.item = scope.add.sprite(scope.world.centerX, scope.world.centerY, menuJSON.menu[i].img);
 					this.item.anchor.set(0.5,0);
-					this.item.animations.add('default');
-					this.item.animations.play('default', 30, true);
+					this.item.scale.set(0);
+//					this.item.animations.add('default');
+//					this.item.animations.play('default', 30, true);
+					var aniTime =  500 + myLocY * 2;
+					
+					//scope.add.tween(this.item).to({ x: -300}, 500, Phaser.Easing.Back.In, true);
+					
+					var tween = scope.add.tween(this.item.scale).to({ x: 1, y: 1 }, aniTime, Phaser.Easing.Quadratic.InOut, true);
+					var tween2 = scope.add.tween(this.item).to({ x: scope.world.centerX, y: myLocY }, aniTime, Phaser.Easing.Quadratic.InOut, true);
+					
+//					tween.onComplete.add(function(){
+//						this.add.tween(sprite.scale).to({x: 2, y: 2}, 4000, Phaser.Easing.Linear.Out);
+//					},this);
+
 
 					this.item.inputEnabled = true;
 					this.item.events.onInputDown.add(clickMe, this.item);
