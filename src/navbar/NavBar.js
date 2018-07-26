@@ -21,7 +21,7 @@ class NavBar{
 					menu: [
 						{state: 'Main', img: 'octoMan', animated: true, 
 						 	type: 'state', url: 'test3'},
-						{state: 'FlipBook', img: 'item1', animated: true, 
+						{state: 'Clouds', img: 'item1', animated: true, 
 						 	type: 'state', url: 'test'},
 						{state: 'ReelPreloader', img: 'item2', animated: true, 
 						 	type: 'state', url: 'test2'},

@@ -4,11 +4,11 @@
 * http://www.jjwallace.info/
 * Pink JellyFish Phaser 2 CE Sample
 */
+var globalMenuItem = null;
 
 function Clouds(){
 
-	BasicGame.Clouds = function (game) { this.game; this.add; this.camera; this.cache; this.input; this.load; this.math; this.sound; this.stage; this.time; this.tweens; this.state; this.world; this.particles; this.physics; this.rnd;
-																	 };
+	BasicGame.Clouds = function (game) { this.game; this.add; this.camera; this.cache; this.input; this.load; this.math; this.sound; this.stage; this.time; this.tweens; this.state; this.world; this.particles; this.physics; this.rnd;};
 	
 	var distance = 300;
 	var speed = 1;
@@ -30,6 +30,19 @@ function Clouds(){
 	var starGroup;
 	
 	BasicGame.Clouds.prototype = {
+		
+		preload: function (){
+				this.load.text('jsonDrawings', 'assets/portfolio/drawings/list.json');
+				this.load.text('jsonGames', 'assets/portfolio/games/list.json');
+			this.load.image('back','assets/sprite/back.png');
+			
+			this.load.atlas('iconGames', 'assets/sprite/icon_games.png', 'assets/sprite/icon_games.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+			
+			this.load.atlas('iconArtwork', 'assets/sprite/icon_artwork.png', 'assets/sprite/icon_artwork.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+			
+			this.load.atlas('iconOther', 'assets/sprite/icon_other.png', 'assets/sprite/icon_other.json', Phaser.Loader.TEXTURE_ATLAS_JSON_HASH);
+		},
+		
 		create: function () {
 			
 			this.stage.backgroundColor = "#91c8e8";
@@ -49,7 +62,6 @@ function Clouds(){
 
 			for (var i = 0; i < max; i++){
 				xx[i] = Math.floor(Math.random() * 800) - 400;
-				//yy[i] = Math.floor(Math.random() * 600) - 300;
 				yy[i] = Math.floor(Math.random() * 600) - 300;
 				zz[i] = Math.floor(Math.random() * 1700) - 100;
 				
@@ -59,18 +71,67 @@ function Clouds(){
 
 				var star = this.make.sprite(0, 0, 'cloud');
 				
-
 				sprites.addChild(star);
 
 				stars.push(star);
 				starGroup.add(stars[i]);
+				
 			}
 			
+			menuJSON = {
+				menu: [
+					{state: 'FlipBook', img: 'iconGames', animated: true, 
+					 type: 'state', url: 'jsonGames'},
+					{state: 'FlipBook', img: 'iconArtwork', animated: true, 
+					 type: 'state', url: 'jsonDrawings'},
+					{state: 'ReelPreloader', img: 'iconOther', animated: true, 
+					 type: 'state', url: 'jsonGames'}
+				],
+			}
+			
+			function addMenuItems(scope, state){
+				for (var i = 0; i < menuJSON.menu.length; i++) {
+					this.item = scope.add.sprite(scope.world.centerX, 60 + i * 160, menuJSON.menu[i].img);
+					this.item.anchor.set(0.5,0);
+					this.item.animations.add('default');
+					this.item.animations.play('default', 30, true);
+
+					this.item.inputEnabled = true;
+					this.item.events.onInputDown.add(clickMe, this.item);
+					//this.addChild(this.item);
+
+					this.item.myUrl = menuJSON.menu[i].url;
+					this.item.state = menuJSON.menu[i].state;
+					this.item.type = menuJSON.menu[i].type;
+
+					function clickMe(){
+						if(this.type == 'state'){
+							console.log(this.state);
+							globalMenuItem = this.myUrl;
+							scope.state.start(this.state);
+						}else{
+							//console.log(this.myUrl);
+							window.open(this.myUrl, "_blank");
+						}
+					}
+				}
+			}
+			
+			addMenuItems(this,this);
+			
+			var backButton = this.add.sprite(0, 0, 'back');
+			backButton.anchor.set(0,0);
+			backButton.inputEnabled = true;
+			backButton.events.onInputDown.add(this.backButton, this);
 			
 			var navbar = new NavBar(this);
 			
-			this.textAnimation('TEST\nIS\nTEST!');
+			//this.textAnimation('TEST\nIS\nTEST!');
 			
+		},
+		
+		backButton: function() {
+			this.state.start("Main");
 		},
 		
 		textAnimation: function(text){

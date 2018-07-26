@@ -1,5 +1,8 @@
 {
-	"items": [
+	"filePath": "assets/portfolio/games/",
+	"pageTitle": "My Games",
+	"buildTime": "Days",
+	"items": [ 
 
 		{"img": "bioextract.jpg", 
 		"name": "Bio Extract",
@@ -33,7 +36,7 @@
 		"name": "Gum Drop Hop",
 		"buildTime": 21, 
 		"client": "Publisher: MaxGame",
-		"description": "Non-Violent Platformer",
+		"description": "Non-Violent Platformer. 360 Million plays in 3 years.",
 		"roll": "Designer, Animator, Programmer"},
 		
 		{"img": "theslob.jpg", 
@@ -53,15 +56,15 @@
 		{"img": "lostfluid.jpg", 
 		"name": "Lost Fluid",
 		"buildTime": 21, 
-		"client": "Publisher: ",
-		"description": " ",
+		"client": "Publisher: Nickelodeon",
+		"description": "Experimental discovery platformer.  Land on a distant planet and start life on it.",
 		"roll": "Designer, Animator, Programmer"},
 		
 		{"img": "ironturtle.jpg", 
 		"name": "Iron Turtle",
 		"buildTime": 21, 
 		"client": "Publisher: ArmorGames",
-		"description": "Puzzle Game",
+		"description": "Puzzle Game featuring a robot. Springs, Coins, Puzzles.",
 		"roll": "Designer, Animator, Programmer"},
 		
 		{"img": "solarball.jpg", 

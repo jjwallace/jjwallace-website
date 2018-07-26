@@ -51,6 +51,8 @@ BasicGame.Preloader.prototype = {
 			
 			this.load.image('cloud', 'assets/sprite/cloud.png');
 		
+			
+		
 	},
 
 	create: function () {

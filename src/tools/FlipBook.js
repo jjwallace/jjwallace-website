@@ -31,22 +31,50 @@ function FlipBook(){
 	var currentCount = 0;
 	
 	var activeMover = true;
+	
+	var imgItems = 0;
+	
+	var pageTitle = 'My Games';
 
 	BasicGame.FlipBook.prototype = {
 		
 		preload: function () {
-			this.load.text('myJson', 'assets/portfolio/games/list.json');	
+			var loaderOffset = 50
+			this.background = this.add.sprite(this.world.centerX, this.world.centerY + loaderOffset, 'preloaderBackground');
+			this.preloadBar = this.add.sprite(this.world.centerX, this.world.centerY + loaderOffset, 'preloaderBar');
+			this.preloadBar.anchor.setTo(0.5, 0.5);
+			this.background.anchor.setTo(0.5, 0.5);
+			
 			this.load.image('arrow','assets/sprite/arrow.png');
-			this.load.image('back','assets/sprite/back.png');
+			
+			
+			this.load.script(
+				'font.Asap',
+				'//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'
+			);
+			
+			console.log('JSON', globalMenuItem)
+			
+			this.jsonList =  JSON.parse(this.cache.getText(globalMenuItem));
+			console.log(this.jsonList);
+			imgItems = this.jsonList;
+			console.log('JSON LOADED');
+			console.log(imgItems);
+			
+			for (var i = 0; i < imgItems.items.length; i++){
+				var myString = imgItems.items[i].name;
+				this.load.image(myString, imgItems.filePath +
+												imgItems.items[i].img);
+				console.log(myString);
+			}
 		},
 		
 		create: function () {
+			this.preloadBar.visible = false;
+			this.background.visible = false;			
 			
 			this.stage.backgroundColor = "#91c8e8";
 
-			this.jsonList = JSON.parse(this.game.cache.getText('myJson'))
-			console.log(this.jsonList)
-			
 			//SWIPE
 			this.input.onUp.add(this.mouseUp, this);
 			this.input.onDown.add(this.mouseDown, this);
@@ -80,6 +108,7 @@ function FlipBook(){
 			this.style = { font: "24px Arial Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4 };
 			this.loadingText = this.add.text(this.game.width/2, 60, 'test', this.style);
 			this.loadingText.anchor.set(0.5);
+			this.loadingText.setText(imgItems.pageTitle);
 
 			var backButton = this.add.sprite(0, 0, 'back');
 			backButton.anchor.set(0,0);
@@ -97,9 +126,25 @@ function FlipBook(){
 			arrowRight.inputEnabled = true;
 			arrowRight.events.onInputDown.add(this.goRight, this);
 			
+			images = [];
+			currentCount = 0;
+			
+			console.log('image items ' + imgItems)
+			for (var i = 0; i < imgItems.items.length; i++){
+				console.log(imgItems.items[i].name)
+				var cX = this.game.width/2;
+				var cY = this.game.height/2
+				var newImage = this.add.image(cX, cY, imgItems.items[i].name);
+				newImage.anchor.set(0.5);
+				newImage.scale.set(0.1);
+				images.push(newImage);
+			}
+			
+			this.loadComplete();
+			
 			var navbar = new NavBar(this);
 
-			this.loadContent(this);
+			//this.loadContent(this);
 		},
 
 		backButton: function() {
@@ -154,45 +199,9 @@ function FlipBook(){
 			}
 		},
 		
-		loadContent: function(state){
-			state.load.onLoadStart.add(state.loadStart, state);
-			state.load.onFileComplete.add(state.fileComplete, state);
-			state.load.onLoadComplete.add(state.loadComplete, state);
-			state.start(state);
-		},
-
-		start: function(game) {
-			console.log(this.jsonList.items.length);
-			for (var i = 1; i < this.jsonList.items.length; i++){
-				this.load.image('img' + i, 'assets/portfolio/games/'+ this.jsonList.items[i].img);
-			}
-			this.load.start();
-			//this.imgButton.visible = false;
-		},
-
-		loadStart: function(state) {
-			this.loadingText.setText("Loading ...");
-		},
-
-		fileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
-			var cX = this.world.centerX;
-			var cY = this.world.centerY;
-			this.loadingText.setText("Loading: " + progress + "% - " + totalLoaded + " / " + totalFiles);
-			var newImage = this.add.image(cX, cY, cacheKey);
-			newImage.anchor.set(0.5);
-			newImage.scale.set(0.1);
-			
-			//this.add.tween(newImage.scale).to({ x: 1, y: 1 }, 300, Phaser.Easing.Back.In, true);
-
-			images.push(newImage);
-					
-//			images.inputEnabled = true;
-//			images.input.enableDrag();
-		},
-		
 		loadComplete: function() {
-			this.loadingText.setText("Games");
-			console.log['PRELOAD COMPLETE'];
+			
+			console.log('PRELOAD COMPLETE');
 			
 			images.x = 0;
 			images.y = 0;

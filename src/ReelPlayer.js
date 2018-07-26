@@ -15,7 +15,7 @@ function ReelPlayer(){
 			video = this.add.video('reel');
 			video.play(true);
 			//  x, y, anchor x, anchor y, scale x, scale y 400, 300, 0.5, 0.5
-			video.addToWorld((this.game.width/2),(this.game.height/2),0.5,0.5,1,1);
+			video.addToWorld((this.game.width/2),(this.game.height/2),0.5,0.5,2,2);
 			video.rotation = (90)
 			
 			var navbar = new NavBar(this);
