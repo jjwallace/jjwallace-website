@@ -57,6 +57,8 @@ BasicGame.ReelPreloader.prototype = {
 //		
 //		nextLine(this);
 		
+		this.stage.backgroundColor = "#000000";
+		
 		var loaderOffset = 50
 		this.background = this.add.sprite(this.world.centerX, this.world.centerY + loaderOffset, 'preloaderBackground');
 		this.preloadBar = this.add.sprite(this.world.centerX, this.world.centerY + loaderOffset, 'preloaderBar');
