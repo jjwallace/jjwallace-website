@@ -78,7 +78,7 @@ class NavBar{
 			this.toggleNavbar(scope);
 		}
 
-		this.imgMenu = scope.add.sprite(this.gameWidth, 0, 'menu');
+		this.imgMenu = scope.add.sprite(this.gameWidth - 9, 0, 'menu');
 		this.imgMenu.anchor.set(1,0);
 		this.imgMenu.inputEnabled = true;
 		this.imgMenu.events.onInputDown.add(menuClick, this);
@@ -173,7 +173,7 @@ class NavBar{
 			this.toggle = false;
       console.log('* CLOSE NAVBAR!');
 			scope.add.tween(this.menuBackground).to({ x: 0, y: 0 }, 100, Phaser.Easing.Linear.In, true);
-			this.scope.game.add.tween(this.imgMenu).to({ x: this.gameWidth, y: 0 }, 300, Phaser.Easing.Back.Out, true);
+			this.scope.game.add.tween(this.imgMenu).to({ x: this.gameWidth - 9, y: 0 }, 300, Phaser.Easing.Back.Out, true);
 		}
 	}
 
