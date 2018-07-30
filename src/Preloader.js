@@ -49,6 +49,7 @@ BasicGame.Preloader.prototype = {
 			this.load.image('box', 'assets/sprite/box.png');
 			this.load.image('mebox', 'assets/sprite/mebox.png');
 			//this.load.image('exit', 'assets/sprite/exit.png');
+			this.load.image('back','assets/sprite/back.png');
 			
 			this.load.image('cloud', 'assets/sprite/cloud.png');
 		
