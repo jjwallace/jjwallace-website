@@ -1,5 +1,3 @@
-# Phaser Site With React #
-
 ## JJWALLACE PORFOLIO SITE ##
 
 This is my interactive website, Built in PhaserJS 2 CE.
