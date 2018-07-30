@@ -9,6 +9,8 @@ function MainState(){
 
 	BasicGame.Main = function (game) { this.game; this.add; this.camera; this.cache; this.input; this.load; this.math; this.sound; this.stage; this.time; this.tweens; this.state; this.world; this.particles; this.physics; this.rnd;
 	};
+	
+	var noteCount = 0;
 
 	BasicGame.Main.prototype = {
 		create: function () {
@@ -18,8 +20,16 @@ function MainState(){
 			this.stage.backgroundColor = "#0075FF";
 
 			function menuClick(game){
-				this.add.tween(imgLogo).to({ x: -300}, 500, Phaser.Easing.Back.In, true);
-				newNote = new NoteBox(this, middleScreen, 350);
+				noteCount ++;
+				if(noteCount == 1){
+					this.add.tween(imgLogo).to({ x: -300}, 500, Phaser.Easing.Back.In, true);
+					newNote = new NoteBox(this, middleScreen, 350);
+				}
+				
+				if(noteCount == 2){
+					
+				}
+				
 			} 
 
 			for (var i = 0; i < 20; i++) {
@@ -160,7 +170,7 @@ NoteBox = function (objectScope, xGo, yGo) {
 	function animateDiv(){
 		line = '';
 		updateLine();
-		game.time.events.repeat(40, content[index].length + 1, updateLine, this);
+		game.time.events.repeat(30, content[index].length + 1, updateLine, this);
 	}
 	
 	function updateLine() {
@@ -192,17 +202,6 @@ NoteBox = function (objectScope, xGo, yGo) {
 
 NoteBox.prototype.constructor = NoteBox;
 NoteBox.prototype = Object.create(Phaser.Sprite.prototype);
-
-
-
-
-
-
-
-
-
-
-
 
 SeaHorse = function (objectScope) {
 	var game = objectScope.game;
