@@ -153,7 +153,7 @@ NoteBox = function (objectScope, xGo, yGo) {
 		return [nh,nw];    
 	}
 	
-	text = game.add.text(-this.width/2 + 10, -this.height/2 + 10, '', { font: "16pt Arial", fill: "#333333", stroke: "#888888", strokeThickness: 2, align: 'left', wordWrap: true, wordWrapWidth: 280  });
+	text = game.add.text(-this.width/2 + 10, -this.height/2 + 10, '', { font: "16pt Helvetica", fill: "#333333", stroke: "#888888", strokeThickness: 2, align: 'left', wordWrap: true, wordWrapWidth: 280  });
 	
 	this.addChild(text);
 

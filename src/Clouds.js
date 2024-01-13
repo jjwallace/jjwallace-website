@@ -159,7 +159,7 @@ function Clouds(){
 			sprite.inputEnabled = true;
 			sprite.input.enableDrag();
 
-			var style = { font: "42px Arial Black", fill: "#333333" ,align: "center", boundsAlignH: "center", boundsAlignV: "middle" };
+			var style = { font: "42px Helvetica Black", fill: "#333333" ,align: "center", boundsAlignH: "center", boundsAlignV: "middle" };
 
 			text = this.add.text(0, 0, text, style);
 			//text.stroke = "#de77ae";

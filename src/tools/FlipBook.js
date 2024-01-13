@@ -105,7 +105,7 @@ function FlipBook(){
 				starGroup.add(stars[i]);
 			}
 			
-			this.style = { font: "24px Arial Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4 };
+			this.style = { font: "24px Helvetica Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4 };
 			this.loadingText = this.add.text(this.game.width/2, 60, 'test', this.style);
 			this.loadingText.anchor.set(0.5);
 			this.loadingText.setText(imgItems.pageTitle);
@@ -210,15 +210,15 @@ function FlipBook(){
 				images[i].scale.set(1);
 				images[i].y = 300;
 				images[i].x = this.world.width/2;
-				this.style = { font: "42px Arial Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle"};
+				this.style = { font: "42px Helvetica Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle"};
 				
 				var botImages = images[i].height/2 + 20;
 
-				txtTitle = { font: "34px Arial Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4  };
+				txtTitle = { font: "34px Helvetica Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4  };
 				
-				txtReg = { font: "16px Arial Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4  };
+				txtReg = { font: "16px Helvetica Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4  };
 				
-				txtDes = { font: "16px Arial Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4 , wordWrap: true, wordWrapWidth: 500};
+				txtDes = { font: "16px Helvetica Black", fill: "#333333" , align: "left", boundsAlignH: "center", boundsAlignV: "middle", stroke: "#ffffff", strokeThickness: 4 , wordWrap: true, wordWrapWidth: 500};
 				
 				var lI = 20;
 				var tS = 40;
